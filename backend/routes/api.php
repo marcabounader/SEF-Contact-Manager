@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\ContactController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -29,8 +30,8 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::group(['middleware' => ['auth:api']],function (){
     Route::controller(ContactController::class)->group(function () {
-        Route::get('','');
-        Route::post('','');
-        Route::delete('','');
-    }
+        Route::post('add-contact','addContact');
+        Route::get('get-contacts','getContacts');
+        Route::delete('remove-contact/{contact_id}','removeContact');
+    });
 });
