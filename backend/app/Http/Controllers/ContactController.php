@@ -29,7 +29,7 @@ class ContactController extends Controller
         }
     }
 
-    public function getContacts(Request $request,$contact_id){
+    public function getContacts(Request $request){
         try{
             $user=Auth::user();
             $contacts=$user->contacts;
@@ -45,16 +45,14 @@ class ContactController extends Controller
         }
     }
 
-    public function removeContact(Request $request){
+    public function removeContact(Request $request,$contact_id){
         try{
-            $user=Auth::user();
+            $user_id=Auth::id();
             $contact_id=$request->contact_id;
-            $contacts=$user->contacts;
-            $contacts->where('contact_id',$contact_id)->delete();
+            Contact::where([['id',$contact_id],['user_id',$user_id]])->delete();
             return response()->json([
                 'status' => "success",
-                'contacts' => $contacts
-            ]);        ;
+            ]);        
         } catch(Exception $e){
             return response()->json([
                 'status' => "failed",
