@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use TarfinLabs\LaravelSpatial\Types\Point;
 
 class AuthController extends Controller
 {
@@ -32,11 +33,10 @@ class AuthController extends Controller
 
         $user = Auth::user();
         return response()->json([
-            'user' => $user,
-            'authorization' => [
-                'token' => $token,
-                'type' => 'bearer',
-            ]
+            'status' => "success",
+            'name' => $user->name,
+            'token' => $token,
+            'type' => 'bearer',
         ]);
     }
 
@@ -55,8 +55,7 @@ class AuthController extends Controller
         ]);
 
         return response()->json([
-            'message' => 'User created successfully',
-            'user' => $user
+            'status' => "success",
         ]);
     }
 

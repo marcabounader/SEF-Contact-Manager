@@ -11,3 +11,81 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+html, body, #root{
+  height:100%;
+  box-sizing: border-box;
+}
+
+header{
+  background: rgb(2,0,36);
+  background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(8,9,44,1) 0%, rgba(145,193,219,1) 100%, rgba(9,102,121,1) 100%, rgba(0,212,255,1) 100%);
+}
+
+nav{
+  padding:15px;
+}
+nav li{
+  list-style: none;
+
+}
+nav li::first-letter{
+  text-transform: uppercase;
+}
+nav a{
+  text-decoration: none;
+  color:white;
+}
+
+.form-container{
+  border:2px solid black;
+  border-radius: 10px;
+}
+.form-container h1{
+  text-align: center;
+}
+.form-container button{
+  align-self: center;
+}
+form{
+  height:auto;
+}
+
+form label{
+  align-self: flex-start;
+}
+form *{
+  margin:10px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  flex-basis:15%;
+  border-radius: 5px;
+  height:100%;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card img {
+  border-radius: 5px 5px 0 0;
+  width:100%;
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+#map { height: 180px; }
+
+.leaflet-container {
+  width: 350px;
+  height: 350px;
+}
+.map{
+  display:flex;
+  justify-content: center;
+}

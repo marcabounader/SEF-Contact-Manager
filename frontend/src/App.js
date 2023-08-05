@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter, Route,Routes} from 'react-router-dom';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Contacts from './pages/Contacts';
+import Contact from './pages/Contact';
+import Index from './pages/Index';
+import './styles/utilities.css'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <Routes>
+      <Route path='/' element={<Index/>}/>
+                <Route path='login' element={<Login/>}/>
+                <Route path='register' element={<Register/>}/>
+                <Route path='contacts'>
+                    <Route index element={<Contacts/>}/>
+                    <Route path=':id' element={<Contact/>}/> 
+                </Route>
+                <Route path='*' element={<h1>404 - Page does not exist</h1>}/>
+      </Routes>
+    </BrowserRouter>
+    );
 }
 
 export default App;

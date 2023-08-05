@@ -6,18 +6,26 @@ use App\Models\Contact;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use TarfinLabs\LaravelSpatial\Types\Point;
 
 class ContactController extends Controller
 {
     public function addContact(Request $request){
         try{
-            $contact= new Contact;
-            $contact->user_id=Auth::id();
-            $contact->name=$request->name;
-            $contact->phone_number=$request->phone_number;
-            $contact->latitude=$request->latitude;
-            $contact->longitude=$request->longitude;
-            $contact->save();
+            // $contact= new Contact;
+            // $contact->user_id=Auth::id();
+            // $contact->name=$request->name;
+            // $contact->phone_number=$request->phone_number;
+            // $coordinates=new Point(lat: $request->x, lng: $request->y);
+            // $contact->coordinates=$coordinates->toGeomFromText();
+            // $contact->save();
+            $user_id=Auth::id();
+            Contact::create([
+                'user_id'=>$user_id,
+                'name'=>$request->name,
+                'phone_number'=>$request->phone_number,
+                'coordinates'=> new Point(lat: $request->x, lng: $request->y)
+            ]);
             return response()->json([
                 'status' => "success"
             ]);
@@ -33,9 +41,11 @@ class ContactController extends Controller
         try{
             $user=Auth::user();
             $contacts=$user->contacts;
+            // $coordinate_array = explode(',', $contacts->coordinates);
             return response()->json([
                 'status' => "success",
-                'contacts' => $contacts
+                'contacts' => $contacts,
+                // 'coordinates'=> $coordinate_array,
             ]);        ;
         } catch(Exception $e){
             return response()->json([

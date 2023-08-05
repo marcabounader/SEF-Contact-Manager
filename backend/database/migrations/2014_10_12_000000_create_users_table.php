@@ -21,17 +21,6 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('contacts', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->string('name');
-            $table->integer('phone_number');
-            $table->integer('latitude');
-            $table->integer('longitude');
-            $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
-        });
-
 
     }
 
