@@ -24,7 +24,7 @@ class ContactController extends Controller
                 'user_id'=>$user_id,
                 'name'=>$request->name,
                 'phone_number'=>$request->phone_number,
-                'coordinates'=> new Point(lat: $request->x, lng: $request->y)
+                'coordinates'=> new Point(lat: $request->lat, lng: $request->lng)
             ]);
             return response()->json([
                 'status' => "success"
