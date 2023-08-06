@@ -1,10 +1,11 @@
 import Nav from "../../components/Nav";
 import ContactList from "../../components/ContactList";
+import NavBar from "../../components/NavBar";
 const Contacts = () => {
-    const tabs=["Add"];
+    const tabs=["add"];
     return ( 
         <>
-        <Nav tabs={tabs}></Nav>
+        <NavBar></NavBar>
             <section>
                 <ContactList/>
             </section>
