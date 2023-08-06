@@ -1,5 +1,3 @@
-import Nav from '../../components/Nav';
-import NavBar from '../../components/NavBar';
 import image from './contacts-manager.png';
 const Index = () => {
     return ( 

@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import axios from 'axios';
-import Nav from "../../components/Nav";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -29,7 +28,6 @@ const Login = () => {
     const {email,password} =data;
     return ( 
         <>
-        <Nav tabs={tabs}></Nav>
         <section className="flex-column center full-height" >
             <div className="form-container flex-column p-10">
                 <h1>Login</h1>

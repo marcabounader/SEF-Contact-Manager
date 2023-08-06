@@ -1,4 +1,3 @@
-import Nav from "../../components/Nav";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -29,7 +28,6 @@ const Register = () => {
     const {name,email,password} =data;
         return ( 
         <>
-        <Nav tabs={tabs}></Nav>
         <section className="flex-column center full-height" >
             <div className="form-container flex-column p-10">
                 <h1>Register</h1>
