@@ -60,7 +60,7 @@ class ContactController extends Controller
             // $user_id=Auth::id();
             $contact_id=$request->contact_id;
             // Contact::where([['id',$contact_id],['user_id',$user_id]])->delete();
-            Contact::where('id',$contact_id)-delete();
+            Contact::where('id',$contact_id)->delete();
             return response()->json([
                 'status' => "success",
             ]);        
