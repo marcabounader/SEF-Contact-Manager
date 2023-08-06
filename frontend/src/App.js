@@ -5,6 +5,7 @@ import Contacts from './pages/Contacts';
 import Contact from './pages/Contact';
 import Index from './pages/Index';
 import './styles/utilities.css'
+import AddContact from './pages/AddContact';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
                 <Route path='contacts'>
                     <Route index element={<Contacts/>}/>
                     <Route path=':id' element={<Contact/>}/> 
+                    <Route path='add' element={<AddContact/>}/>
                 </Route>
                 <Route path='*' element={<h1>404 - Page does not exist</h1>}/>
       </Routes>
