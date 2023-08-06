@@ -1,12 +1,23 @@
-
-const NavBar = () => {
-    return ( 
-        <header className="flex-row end nav-bg">
-            <nav className="flex-row nav">
-                <li className="p-5"><a href='/contacts/add'>Add</a></li>
-            </nav>
-        </header>
-    );
+import React from 'react'
+import { PrimaryNav, MenuLink, Menu, Hamburger } from './NavElement'
+const Navbar = () => {
+  return (
+    <>
+      <PrimaryNav>
+        <Hamburger />
+        <Menu>
+          <MenuLink to="/" activeStyle>
+            Home
+          </MenuLink>
+          <MenuLink to="/contacts" activeStyle>
+            Contacts
+          </MenuLink>
+          <MenuLink to="/contacts/add" activeStyle>
+            Add
+          </MenuLink>
+        </Menu>
+      </PrimaryNav>
+    </>
+  )
 }
-
-export default NavBar;
+export default Navbar

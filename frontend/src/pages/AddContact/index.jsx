@@ -1,4 +1,3 @@
-import Nav from "../../components/Nav";
 import L, { Map, marker } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, useMap, Marker, Popup, useMapEvents } from 'react-leaflet'
@@ -57,7 +56,6 @@ const AddContact = () => {
       }
     return ( 
         <>
-        <Nav tabs={["Contacts"]}></Nav>
             <section className="flex-row center full-height" >
                 <div className="form-container flex-column p-10 m-10">
                     <h1>Add Contact</h1>

@@ -1,5 +1,4 @@
-import { useLocation, useParams } from "react-router-dom";
-import Nav from "../../components/Nav";
+import { useLocation } from "react-router-dom";
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -21,7 +20,6 @@ const Contact = () => {
 
     return ( 
         <>
-            <Nav tabs={["contacts"]}></Nav>
             <h1>Contact: {name}</h1>
             <p>Phone Number: {phone_number}</p>
             <h2>Location</h2>

@@ -6,10 +6,12 @@ import Contact from './pages/Contact';
 import Index from './pages/Index';
 import './styles/utilities.css'
 import AddContact from './pages/AddContact';
+import NavBar from './components/NavBar';
 
 function App() {
   return (
     <BrowserRouter>
+      <NavBar></NavBar>
       <Routes>
       <Route path='/' element={<Index/>}/>
                 {/* <Route path='login' element={<Login/>}/>
