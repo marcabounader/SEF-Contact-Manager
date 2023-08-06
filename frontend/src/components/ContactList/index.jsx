@@ -3,13 +3,14 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 const ContactList = () => {
     const [contacts,setContacts]=useState([]);
+    // const config={
+    //     headers:{Authorization:`Bearer ${localStorage.getItem('token')}`}
+    // };
+
     const fetchContacts=( async ()=>{
-        const config={
-            headers:{Authorization:`Bearer ${localStorage.getItem('token')}`}
-        };
+
         try{
-            const response=await axios.get("http://localhost:8000/api/get-contacts",config);
-            console.log(contacts);
+            const response=await axios.get("http://localhost:8000/api/get-contacts");
             setContacts(response.data.contacts);
         }catch(e){
             console.log(e);
@@ -17,11 +18,8 @@ const ContactList = () => {
     })
 
     const removeContact = async (contact_id)=>{
-        const config={
-            headers:{Authorization:`Bearer ${localStorage.getItem('token')}`}
-        };
         try{
-            const response=await axios.delete(`http://localhost:8000/api/remove-contact/${contact_id}`,config);
+            const response=await axios.delete(`http://localhost:8000/api/remove-contact/${contact_id}`);
             const new_contacts=contacts.filter((contact)=>contact.id!=contact_id);
             setContacts(new_contacts)
         }catch(e){
@@ -46,8 +44,8 @@ const ContactList = () => {
                         <p>Phone number: {contact.phone_number}</p>
                     </div>
                     <div className="flex-row around">
-                        <i class="fa-solid fa-location-crosshairs" onClick={()=> navigation(contact.id,contact.name,contact.phone_number,contact.coordinates)}></i>
-                        <i class="fa-solid fa-trash" onClick={()=>removeContact(contact.id)}></i>
+                        <i className="fa-solid fa-location-crosshairs" onClick={()=> navigation(contact.id,contact.name,contact.phone_number,contact.coordinates)}></i>
+                        <i className="fa-solid fa-trash" onClick={()=>removeContact(contact.id)}></i>
 
                     </div>
                 </div>

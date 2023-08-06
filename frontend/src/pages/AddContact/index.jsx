@@ -21,12 +21,6 @@ const AddContact = () => {
 
     const handleDataChange = (e) =>{
         setData({...data,[e.target.name]:e.target.value});
-        if(e.target.name=="lat" || e.target.name=="lng"){
-            // setPosition([data.lat,data.lng])
-            // let newLatLng = new L.LatLng(data.lat, data.lng);
-            // marker.setLatLng(newLatLng); 
-            // Map.setView(marker.getLatLng(),Map.getZoom()); 
-        }
     }
 
     const handleAddition= async () =>{
@@ -43,13 +37,6 @@ const AddContact = () => {
         }
     }
     const {name,phone_number,lat,lng}=data;
-
-    // function MoveMarker() {
-    //     const map = useMapEvents('', () => {
-    //         map.setView([data.lat, data.lng], map.getZoom())
-    //     })
-    //     return null;
-    //   }
 
     function LocationMarker() {
         const map = useMapEvents({
@@ -70,7 +57,7 @@ const AddContact = () => {
       }
     return ( 
         <>
-        <Nav tabs={[]}></Nav>
+        <Nav tabs={["Contacts"]}></Nav>
             <section className="flex-row center full-height" >
                 <div className="form-container flex-column p-10 m-10">
                     <h1>Add Contact</h1>

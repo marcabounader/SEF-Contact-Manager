@@ -3,7 +3,7 @@ import image from './contacts-manager.png';
 const Index = () => {
     return ( 
         <>
-        <Nav tabs={["login","register"]}></Nav>
+        <Nav tabs={["contacts"]}></Nav>
         <section className='flex-row center'>
             <img src={image} alt="Contact Manage Picture"/>
         </section>

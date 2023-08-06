@@ -19,9 +19,9 @@ class ContactController extends Controller
             // $coordinates=new Point(lat: $request->x, lng: $request->y);
             // $contact->coordinates=$coordinates->toGeomFromText();
             // $contact->save();
-            $user_id=Auth::id();
+            // $user_id=Auth::id();
             Contact::create([
-                'user_id'=>$user_id,
+                // 'user_id'=>$user_id,
                 'name'=>$request->name,
                 'phone_number'=>$request->phone_number,
                 'coordinates'=> new Point(lat: $request->lat, lng: $request->lng)
@@ -39,8 +39,8 @@ class ContactController extends Controller
 
     public function getContacts(Request $request){
         try{
-            $user=Auth::user();
-            $contacts=$user->contacts;
+            // $user=Auth::user();
+            $contacts=Contact::all();
             // $coordinate_array = explode(',', $contacts->coordinates);
             return response()->json([
                 'status' => "success",
@@ -57,9 +57,10 @@ class ContactController extends Controller
 
     public function removeContact(Request $request,$contact_id){
         try{
-            $user_id=Auth::id();
+            // $user_id=Auth::id();
             $contact_id=$request->contact_id;
-            Contact::where([['id',$contact_id],['user_id',$user_id]])->delete();
+            // Contact::where([['id',$contact_id],['user_id',$user_id]])->delete();
+            Contact::where('id',$contact_id)-delete();
             return response()->json([
                 'status' => "success",
             ]);        

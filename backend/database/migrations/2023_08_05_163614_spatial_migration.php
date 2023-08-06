@@ -14,12 +14,12 @@ return new class extends SpatialMigration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            // $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->integer('phone_number');
             $table->point('coordinates',0);
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
+            // $table->foreign('user_id')->references('id')->on('users');
             $table->spatialIndex('coordinates');
 
         });

@@ -20,18 +20,18 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::controller(AuthController::class)->group(function () {
-    Route::post('login', 'login');
-    Route::post('register', 'register');
-    Route::post('logout', 'logout');
-    Route::post('refresh', 'refresh');
+// Route::controller(AuthController::class)->group(function () {
+//     Route::post('login', 'login');
+//     Route::post('register', 'register');
+//     Route::post('logout', 'logout');
+//     Route::post('refresh', 'refresh');
     
-});
+// });
 
-Route::group(['middleware' => ['auth:api']],function (){
+// Route::group(['middleware' => ['auth:api']],function (){
     Route::controller(ContactController::class)->group(function () {
         Route::post('add-contact','addContact');
         Route::get('get-contacts','getContacts');
         Route::delete('remove-contact/{contact_id}','removeContact');
     });
-});
+// });

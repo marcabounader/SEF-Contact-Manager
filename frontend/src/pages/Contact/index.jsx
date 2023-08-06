@@ -21,7 +21,7 @@ const Contact = () => {
 
     return ( 
         <>
-            <Nav tabs={[]}></Nav>
+            <Nav tabs={["contacts"]}></Nav>
             <h1>Contact: {name}</h1>
             <p>Phone Number: {phone_number}</p>
             <h2>Location</h2>
